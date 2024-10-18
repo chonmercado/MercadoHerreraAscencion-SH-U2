@@ -67,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" class="form-control" id="telefono" name="telefono" required>
         </div>
         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        <label for="">Olvidaste tu contraseña</label>
     </form>
 </div>
 </body>
