@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$dbname = 'citas'; // Cambia esto al nombre de tu base de datos
-$username = 'root'; // Cambia esto según tu configuración
-$password = ''; // Cambia esto según tu configuración
+$host = getenv('DB_HOST') ?: 'localhost';
+$dbname = getenv('DB_NAME') ?: 'citas';
+$username = getenv('DB_USER') ?: 'root';
+$password = getenv('DB_PASSWORD') ?: '';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -10,4 +10,5 @@ try {
 } catch (PDOException $e) {
     echo "Error de conexión: " . $e->getMessage();
 }
+
 ?>

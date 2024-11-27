@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80" # Mapear el puerto 80 del contenedor al puerto 8080 de tu máquina
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: citas
+    ports:
+      - "3306:3306" # Exponer el puerto de MySQL
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
